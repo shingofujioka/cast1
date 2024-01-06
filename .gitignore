@@ -1,0 +1,9 @@
+# 無視するディレクトリ
+myenv/
+# その他無視したいファイルやディレクトリ
+train_data/
+lightning_logs/
+model.py
+__pycache__/main.cpython-310.pyc
+__pycache__/main.cpython-312.pyc
+__pycache__/model.cpython-310.pyc
