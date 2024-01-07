@@ -108,7 +108,7 @@ if st.button('Start Analysis') and uploaded_file:
 
 
  # システムの動作説明
-st.info('Just upload the image of your cast part and the AI will analyze it for quality control.')
+#st.info('Just upload the image of your cast part and the AI will analyze it for quality control.')
 
 # フッター
 st.write('© 2023 AI Quality Control')   
