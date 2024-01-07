@@ -70,7 +70,7 @@ if st.button('Start Analysis') and uploaded_file:
 
     # FastAPIサーバーに画像を送信し、予測結果を取得
     response = requests.post(
-        "http://127.0.0.1:8000/prediction",
+        "https://ai-quality-control.onrender.com/prediction",
         files={"image_bytes": uploaded_file.getvalue()
                }
                 )
