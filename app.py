@@ -70,6 +70,10 @@ button_style = """
 <style>
     .stButton>button {
         color: white;
+        font-size: 25px;  /* 文字のサイズを大きくする */
+        height: 3em;  /* ボタンの高さを設定 */
+        width: 100%;  /* ボタンの幅をコンテナの100%にする */
+        border-radius: 5px;  /* ボタンの角の丸み */
         border: 2px solid #4CAF50;
         padding: 10px 24px;
         background-color: #4CAF50;
