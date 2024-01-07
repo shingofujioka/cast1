@@ -65,6 +65,29 @@ if uploaded_file:
 
 targets = ['不合格', '合格']
 
+# スタートアナリシスボタンのカスタムスタイルを定義
+button_style = """
+<style>
+    .stButton>button {
+        color: white;
+        border: 2px solid #4CAF50;
+        padding: 10px 24px;
+        background-color: #4CAF50;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .stButton>button:hover {
+        border: 2px solid #45a049;
+        background-color: #45a049;
+    }
+</style>
+"""
+
+# スタイルを注入
+st.markdown(button_style, unsafe_allow_html=True)
+
+
 # 分析開始ボタン
 if st.button('Start Analysis') and uploaded_file:
     
