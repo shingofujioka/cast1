@@ -110,7 +110,10 @@ if st.button('Start Analysis') and uploaded_file:
         # 予測されたクラスと確率を安全に取得
         prediction = response_json.get("most_probable_class", "Unknown")
         class_probabilities = response_json.get("class_probabilities")
-        max_probability = max(class_probabilities)*100
+        rounded_probabilities = [round(prob * 100, 1) for prob in class_probabilities]
+        max_probability = max(rounded_probabilities)  # 最大の確率を取得
+
+
 
         # 予測結果の出力
         st.markdown('## Result', unsafe_allow_html=True)
