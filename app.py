@@ -7,22 +7,6 @@ import base64
 
 # ヘッダーセクション
 st.title('Welcome to AI Quality Control!')
-st.write("""
-このページでは、AIが製造部品の品質を評価し、合格か不合格かを判定をします。
-ユーザーは検査したい部品の画像をドラッグアンドドロップするか、ファイル選択で対象の画像を選択し、
-「Start Analysis」ボタンをクリックしてください。
-""")
-# 画像ファイルの読み込み
-image1 = Image.open('test2.jpeg')  # ここに画像ファイルのパスを入力
-image2 = Image.open('test1.jpeg')  # ここに画像ファイルのパスを入力
-
-
-# 2つの画像を横に並べて表示
-col1, col2 = st.columns(2)
-with col1:
-    st.image(image1, width=300)
-with col2:
-    st.image(image2, width=300)
 
 # 画像ファイルの読み込み
 imageOK = Image.open('OK.jpeg')  # ここに画像ファイルのパスを入力
@@ -44,6 +28,25 @@ with col3:
 
 with col4:
     st.image(imageNG3, caption='不適合例3', width=150)
+
+st.write("""
+このページでは、AIが製造部品の品質を評価し、合格か不合格かを判定をします。
+ユーザーは検査したい部品の画像をドラッグアンドドロップするか、ファイル選択で対象の画像を選択し、
+「Start Analysis」ボタンをクリックしてください。
+""")
+# 画像ファイルの読み込み
+image1 = Image.open('test2.jpeg')  # ここに画像ファイルのパスを入力
+image2 = Image.open('test1.jpeg')  # ここに画像ファイルのパスを入力
+
+
+# 2つの画像を横に並べて表示
+col1, col2 = st.columns(2)
+with col1:
+    st.image(image1, width=300)
+with col2:
+    st.image(image2, width=300)
+
+
 
 # ファイルアップロードセクション
 st.subheader('↓検査する部品の画像をアップロードしてください↓')
