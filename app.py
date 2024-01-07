@@ -13,8 +13,8 @@ st.write("""
 「Start Analysis」ボタンをクリックするだけで、AIが部品の品質を評価します。
 """)
 # 画像ファイルの読み込み
-image1 = Image.open('C:\\Users\\fujio\\OneDrive\\デスクトップ\\cast\\test2.jpeg')  # ここに画像ファイルのパスを入力
-image2 = Image.open('C:\\Users\\fujio\\OneDrive\\デスクトップ\\cast\\test1.jpeg')  # ここに画像ファイルのパスを入力
+image1 = Image.open('test2.jpeg')  # ここに画像ファイルのパスを入力
+image2 = Image.open('test1.jpeg')  # ここに画像ファイルのパスを入力
 
 
 # 2つの画像を横に並べて表示
@@ -25,10 +25,10 @@ with col2:
     st.image(image2, width=300)
 
 # 画像ファイルの読み込み
-imageOK = Image.open('C:\\Users\\fujio\\OneDrive\\デスクトップ\\cast\\OK.jpeg')  # ここに画像ファイルのパスを入力
-imageNG1 = Image.open('C:\\Users\\fujio\\OneDrive\\デスクトップ\\cast\\NG1.jpeg')  # ここに画像ファイルのパスを入力
-imageNG2 = Image.open('C:\\Users\\fujio\\OneDrive\\デスクトップ\\cast\\NG2.jpeg')  # ここに画像ファイルのパスを入力
-imageNG3 = Image.open('C:\\Users\\fujio\\OneDrive\\デスクトップ\\cast\\NG3.jpeg')  # ここに画像ファイルのパスを入力
+imageOK = Image.open('OK.jpeg')  # ここに画像ファイルのパスを入力
+imageNG1 = Image.open('NG1.jpeg')  # ここに画像ファイルのパスを入力
+imageNG2 = Image.open('NG2.jpeg')  # ここに画像ファイルのパスを入力
+imageNG3 = Image.open('NG3.jpeg')  # ここに画像ファイルのパスを入力
 
 # 画像を表示するためのコラムを作成
 col1, col2, col3, col4 = st.columns(4)
