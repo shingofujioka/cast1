@@ -58,29 +58,29 @@ async def predict_image(image_bytes: bytes = File(...)):
     # もし画像がグレースケールの場合、RGBに変換
     if image.mode != "RGB":
         image = image.convert("RGB")
+        
+
+    # 画像をモデルに適した形に変換（リサイズ、グレースケール変換、テンソル変換）
+    transformed_image = transform(image)
+
+    # 変換された画像をモデルに入力し、生の予測値を取得
+    prediction = net(transformed_image.unsqueeze(0))
+
+    # Softmax関数を適用して、生の予測値を確率に変換
+    probabilities = F.softmax(prediction, dim=1)
 
 
-        # 画像をモデルに適した形に変換（リサイズ、グレースケール変換、テンソル変換）
-        transformed_image = transform(image)
+    # 最も確率が高いクラスを決定
+    most_probable_class = torch.argmax(probabilities)
+    print('test1:', most_probable_class)
 
-        # 変換された画像をモデルに入力し、生の予測値を取得
-        prediction = net(transformed_image.unsqueeze(0))
+    # 各クラスの確率をnumpy配列に変換し、4桁の小数点まで丸めて可読性を高める
+    class_probabilities = probabilities.detach().numpy()[0].tolist()
+    class_probabilities = [round(float(prob), 4) for prob in class_probabilities]
+    print('test2:', class_probabilities)
 
-        # Softmax関数を適用して、生の予測値を確率に変換
-        probabilities = F.softmax(prediction, dim=1)
-
-
-        # 最も確率が高いクラスを決定
-        most_probable_class = torch.argmax(probabilities)
-        print('test1:', most_probable_class)
-
-        # 各クラスの確率をnumpy配列に変換し、4桁の小数点まで丸めて可読性を高める
-        class_probabilities = probabilities.detach().numpy()[0].tolist()
-        class_probabilities = [round(float(prob), 4) for prob in class_probabilities]
-        print('test2:', class_probabilities)
-
-        # 最も確率が高いクラスと各クラスの確率を含む辞書をレスポンスとして返す
-        return {
-            "most_probable_class": most_probable_class.item(),
-            "class_probabilities": class_probabilities
-        }
+    # 最も確率が高いクラスと各クラスの確率を含む辞書をレスポンスとして返す
+    return {
+        "most_probable_class": most_probable_class.item(),
+        "class_probabilities": class_probabilities
+    }
