@@ -55,6 +55,10 @@ async def predict_image(image_bytes: bytes = File(...)):
     image_stream = io.BytesIO(image_bytes)
     image = Image.open(image_stream)
 
+    # もし画像がグレースケールの場合、RGBに変換
+    if image.mode != "RGB":
+        image = image.convert("RGB")
+
     # 画像をモデルに適した形に変換（リサイズ、グレースケール変換、テンソル変換）
     transformed_image = transform(image)
 
