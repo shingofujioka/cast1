@@ -26,8 +26,8 @@ st.write("""
 「Start Analysis」ボタンをクリックしてください。
 """)
 
-st.write("""
-<p style='margin-top: 1em;'>
+st.markdown("""
+<p style='color: red;'>
 <strong>注) 画像は一枚だけアップロードしてください。</strong>
 </p>
 """, unsafe_allow_html=True)
