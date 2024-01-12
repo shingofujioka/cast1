@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 from PIL import Image
 import base64
-
+from pathlib import Path
 
 # ヘッダーセクション
 st.title('Welcome to AI Quality Control!')
@@ -31,21 +31,6 @@ st.markdown("""
 <strong>注) 画像は一枚だけアップロードしてください。</strong>
 </p>
 """, unsafe_allow_html=True)
-
-
-from pathlib import Path
-
-# ヘッダーセクション
-st.title('Welcome to    "AI Strike Vision" !!')
-
-# 背景
-st.image('背景2.png')
-
-st.write("""
-このページでは、AIを使用して、ピッチャーが投げたボールがストライクかボールかを判定することができます。
-動画をアップロードすると、解析が自動で行われ、結果が出力されます。
-サイドバーのサンプル動画をダウンロードして試してみてください。
-""")
 
 # サイドバーにタイトルを追加
 st.sidebar.title("サンプル動画のダウンロード")
