@@ -33,6 +33,45 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
+from pathlib import Path
+
+# ヘッダーセクション
+st.title('Welcome to    "AI Strike Vision" !!')
+
+# 背景
+st.image('背景2.png')
+
+st.write("""
+このページでは、AIを使用して、ピッチャーが投げたボールがストライクかボールかを判定することができます。
+動画をアップロードすると、解析が自動で行われ、結果が出力されます。
+サイドバーのサンプル動画をダウンロードして試してみてください。
+""")
+
+# サイドバーにタイトルを追加
+st.sidebar.title("サンプル動画のダウンロード")
+
+# ダウンロードする動画ファイルのリスト
+video_files = ["OKサンプル1.jpeg", "OKサンプル2.jpeg", "NGサンプル1.jpeg","NGサンプル2.jpeg"]
+
+# 各動画ファイルに対してダウンロードボタンを追加
+for video_file_name in video_files:
+    video_file_path = Path(video_file_name)
+
+    # ファイルが存在するかどうかを確認
+    if video_file_path.is_file():
+        # ファイルを読み込む
+        with open(video_file_path, "rb") as file:
+            # サイドバーにダウンロードボタンを追加
+            st.sidebar.download_button(
+                label=f"{video_file_name}をダウンロード",
+                data=file,
+                file_name=video_file_name,
+                mime='video/mp4'
+            )
+    else:
+        st.sidebar.write(f"{video_file_name}が見つかりません。")
+
+
 # 画像ファイルの読み込み
 imageOK = Image.open('OK.jpeg')  # ここに画像ファイルのパスを入力
 imageNG1 = Image.open('NG1.jpeg')  # ここに画像ファイルのパスを入力
