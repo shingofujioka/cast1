@@ -33,7 +33,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # サイドバーにタイトルを追加
-st.sidebar.title("サンプル動画のダウンロード")
+st.sidebar.title("サンプル画像のダウンロード")
 
 # ダウンロードする動画ファイルのリスト
 video_files = ["OKサンプル1.jpeg", "OKサンプル2.jpeg", "NGサンプル1.jpeg","NGサンプル2.jpeg"]
